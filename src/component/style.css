@@ -1,0 +1,39 @@
+
+.main_div{
+    display:flex;
+    justify-content:center;
+}
+
+h1{
+    color:aquamarine;
+}
+label{
+    font-weight:bold;
+    display:flex;
+    margin-bottom: 8px;
+}
+input[type='text'],input[type='email']{
+    display:block;
+    width:400px;
+    padding:8px 15px;
+    font-size:14px;
+    line-height:1.487;
+    color:#555;
+    background-color:#fff;
+    border-radius: 5px;
+}
+button{
+    background-color:#555;
+    color:#fff;
+    font-weight: bold;
+    padding:6px 14px;
+    margin-top: 15px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+}
+.error{
+    color:red;
+    display:flex;
+    justify-content: left;
+}
