@@ -37,3 +37,7 @@ button{
     display:flex;
     justify-content: left;
 }
+.error_text{
+    color:red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
