@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import YouTubeForm from './component/YouTubeForm';
+import MyComponent from './component/MyComponent';
+
 
 function App() {
   return (
     <div className="App">
-      <YouTubeForm />
+      <MyComponent />
     </div>
   );
 }
