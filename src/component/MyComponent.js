@@ -1,6 +1,6 @@
 import React from 'react'
 import "./style.css"
-import { Formik, Form, Field, ErrorMessage, FieldArray,FastField } from "formik"
+import { Formik, Form, Field, ErrorMessage, FieldArray, FastField } from "formik"
 
 function MyComponent() {
     const initialValues = {
@@ -11,7 +11,15 @@ function MyComponent() {
         newData: [""]
     }
     const onSubmit = values => {
-        
+    }
+    const lastnameValidations = (value) => {
+        let error;
+        if (!value) {
+            error = "Required Last Name"
+
+        }
+        return error;
+
     }
     const validate = values => {
         const errors = {}
@@ -28,12 +36,12 @@ function MyComponent() {
     }
     return (
         <div className="main_div">
-            <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate} validateOnChange={false}>
+            <Formik initialValues={initialValues} onSubmit={onSubmit} validate={validate} >
                 <Form>
                     <label>Name</label>
                     <FastField name="name" id="name">{
-                        (msg)=>{
-                           
+                        (msg) => {
+
                             return null
                         }
                     }</FastField>
@@ -64,18 +72,16 @@ function MyComponent() {
                     <ErrorMessage name="location" />
                     <FieldArray name="newData">{
                         msg => {
-                            
+
                             const { push, remove, form } = msg;
                             const { values } = form;
                             const { newData } = values;
-                            console.log("Form Errors",form.errors)
 
                             return (<div>
                                 {
                                     newData.map((data, index) => (
                                         <div key={index}>
                                             <Field name={`data[${index}]`} />
-
                                             <button type="button" onClick={() => remove(index)}>-</button>
                                             <button type="button" onClick={() => push('')}>+</button>
                                         </div>
@@ -84,6 +90,15 @@ function MyComponent() {
                             </div>)
                         }
                     }</FieldArray>
+                    <Field as="input" name="lastname" placeholder="Last Name" validate={lastnameValidations} />
+                    <ErrorMessage name="lastname">
+                        {
+                            (error) => {
+                                console.log(error)
+                                return(<div>{error}</div>)
+                            }
+                        }
+                    </ErrorMessage>
                     <div>
                         <button type="submit">Submit</button>
                     </div>
